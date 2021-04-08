@@ -70,14 +70,16 @@ function compareTime(currentTime, pageTime, textArea){
     
 }
 
+// get the <h4> elements from the page
+let headerArray = getElementArray(".container","h4");
+
+// get the <textarea> elements from the page
+let textAreaArray = getElementArray(".container", "textarea");
+
+let buttonArray = getElementArray(".container","button");
+
 // depending on current time, change colour of timeblock
 function changeTimeblockColour(){
-
-    // get the <h4> elements from the page
-    let headerArray = getElementArray(".container","h4");
-
-    // get the <textarea> elements from the page
-    let textAreaArray = getElementArray(".container", "textarea");
 
     console.log(textAreaArray);
 
@@ -85,7 +87,7 @@ function changeTimeblockColour(){
     let hoursTwentyFour = getHoursFromPage(headerArray);
 
     let currentTime = getCurrentHour();
-    console.log(currentTime)
+    // console.log(currentTime)
 
     for(let i=0;i<hoursTwentyFour.length; i++){
         
@@ -96,9 +98,29 @@ function changeTimeblockColour(){
 
 }
 
+function storeEvent(){
+
+    // localStorage.clear()
+
+    let textValue = []
+    for(i = 0; i < textAreaArray.length; i++){
+        textValue[i] = textAreaArray[i].value
+    }
+    
+    console.log(textValue)
+
+    localStorage.setItem("Event",textValue)
+    
+}
+
+console.log(buttonArray)
+
+buttonArray.click(storeEvent)
+
 displayCurrentDay();
 
 changeTimeblockColour();
+
 
 // console.log(currentHour);
 // elementArray = $(".container").find("span");
