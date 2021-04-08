@@ -1,89 +1,27 @@
-# 05 Third-Party APIs: Work Day Scheduler
+# Scheduler
 
-## Your Task
+## Functionality
 
-Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+This simple application acts as an online day-planner, able to write/schdule events during the business hour window of any given day. The site also displays the current day and date to the user, doubling as a a pseudo-calendar. The user can write within the timblock boxes, save their entry into local storage, and reopen/refresh the page with their entry still being displayed to them.
 
-You'll need to use the [Moment.js](https://momentjs.com/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Moment.js in the browser.
+This application makes use of the now deprecated Moment.js API, as per the client's request. 
 
-## User Story
 
-```md
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
-```
+## Issues
 
-## Acceptance Criteria
+The scheduler does not contain a "Clear All Entries" button, so the user, if desired, will have to edit the entries manually. A minor behaviour quirk of the application; all the save buttons save the entries made in all of the text boxes into local storage, making all the timeblocks' behaviour tied to each other. Though not ideal, later releases may add more timeblocks or restrain the times shown, as the design has been implemented as dynamically as possible. 
 
-```md
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-WHEN I click into a timeblock
-THEN I can enter an event
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
-```
+## Expected Behaviour
 
 The following animation demonstrates the application functionality:
 
 ![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
 
+## Maintenance/Suggestions
 
-## Grading Requirements
+Firstly, the use of deprecated API's is not good practice, given that no support is given and no active development is taking place. If the application relies heavily on an API, it's advised that the API of choice is up to date, and actively being developed. With this in mind, the API was only implemented twice on this application; when retrieving the current date and the current time. As such, implementing a newer API should not be a huge task. 
 
-This homework is graded based on the following criteria: 
+Secondly, the addition of a button to clear all entries is suggested for future releases, as it improves the ease of use. The feature would become useful when user forgets to clear a scheduled event after it passes. 
 
-### Technical Acceptance Criteria: 40%
+Lastly, providing the user the option to change the hours being displayed; giving them a wider range of hours, or different hours at night, would add functionality to the site. 
 
-* Satisfies all of the above acceptance criteria plus the following:
-
-  * Uses a date utility library to work with date and time
-
-### Deployment: 32%
-
-* Application deployed at live URL
-
-* Application loads with no errors
-
-* Application GitHub URL submitted
-
-* GitHub repo contains application code
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate
-
-* Application user interface style is clean and polished
-
-* Application resembles the mock-up functionality provided in the homework instructions
-
-### Repository Quality: 13%
-
-* Repository has a unique name
-
-* Repository follows best practices for file structure and naming conventions
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages
-
-* Repository contains quality README file with description, screenshot, and link to deployed application
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application
-
-* The URL of the GitHub repository, with a unique name and a README describing the project
-
-- - -
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
