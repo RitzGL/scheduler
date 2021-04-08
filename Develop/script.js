@@ -10,13 +10,14 @@ function displayCurrentDay(){
 function getCurrentHour(){
     // get current hour from moment.js for comparison
     let currentHour = moment().format("H");
+    
     return currentHour;
 }
 
 // get an array of selected elements 
-function getElementArray(){
+function getElementArray(str, el){
     // store the selected elements into an array
-    let elementArray = $(".container").find("h4");
+    let elementArray = $(str).find(el);
     
     return elementArray;
 }
@@ -56,66 +57,49 @@ function revertTime(time){
     return time - 12;
 }
 
-// check if time is greater than, or less than timeblock's time
-function compareTime(currentTime, timeblockTime){
-    // timeblockTime is an array, remember this
-    if(currentTime){
+// check if time is greater than, equal to or less than timeblock's time
+function compareTime(currentTime, pageTime, textArea){
+    
+    if(pageTime < currentTime){
+        textArea.className = "col-8 past";
+    }else if(pageTime == currentTime){
+        textArea.className = "col-8 present"
+    }else if(pageTime > currentTime){
+        textArea.className = "col-8 future"
+    }
+    
+}
+
+// depending on current time, change colour of timeblock
+function changeTimeblockColour(){
+
+    // get the <h4> elements from the page
+    let headerArray = getElementArray(".container","h4");
+
+    // get the <textarea> elements from the page
+    let textAreaArray = getElementArray(".container", "textarea");
+
+    console.log(textAreaArray);
+
+    // get the textContent from the elements array
+    let hoursTwentyFour = getHoursFromPage(headerArray);
+
+    let currentTime = getCurrentHour();
+    console.log(currentTime)
+
+    for(let i=0;i<hoursTwentyFour.length; i++){
+        
+        hoursTwentyFour[i] = convertTo24Hr(hoursTwentyFour[i]);
+        compareTime(currentTime, hoursTwentyFour[i], textAreaArray[i]);
 
     }
+
 }
 
 displayCurrentDay();
 
-let elementArray = getElementArray();
+changeTimeblockColour();
 
-console.log(elementArray)
-
-let myHours = getHoursFromPage(elementArray);
-
-console.log("hours from the page:", myHours)
-let myConvertedHours = []
-
-
-for(let i=0;i<myHours.length; i++){
-    
-    // this is why it was changing the values to numbers
-    myHours[i] = convertTo24Hr(myHours[i])
-    
-    
-    // attempting to copy string element
-    // myHours[i].endsWith("pm")
-
-    // str is being logged as a number here
-    // console.log(str);
-
-}
-console.log(myHours)
-var string = "blah";
-console.log(string.endsWith("h"));
-
-// for(let i = 0; i < myHours.length; i++){
-   
-
-// write an isAM() function returning boolean value
-    // based on this, convert the numbers to 24-hr values
-    // need to get the strings into homogeneous format
-        // 09am <- good format, not working with minutes, remember!
-        // this could be object with 2 properties
-
-// need to get substring from single element
-function isAM(element){
-    let isAM;
-    if(element === "am"){
-        isAM = true;
-    }else if(element === "pm"){
-        isAM = false;
-    }
-    return isAM;
-}
-
-
-
-console.log("(hopefully) converted hours", myConvertedHours)
 // console.log(currentHour);
 // elementArray = $(".container").find("span");
 // console.log(hours)
