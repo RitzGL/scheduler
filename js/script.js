@@ -153,10 +153,12 @@ function displayEvent(){
 
 }
 
+changeTimeblockColour();
+
 buttonArray.click(storeEvent);
 
 displayEvent();
 
 displayCurrentDay();
 
-changeTimeblockColour();
+
