@@ -11,6 +11,8 @@ This application makes use of the now deprecated Moment.js API, as per the clien
 
 The scheduler does not contain a "Clear All Entries" button, so the user, if desired, will have to edit the entries manually. A minor behaviour quirk of the application; all the save buttons save the entries made in all of the text boxes into local storage, making all the timeblocks' behaviour tied to each other. Though not ideal, later releases may add more timeblocks or restrain the times shown, as the design has been implemented as dynamically as possible. 
 
+The site will not change the colour of a given timeblock unless the save button has been clicked at least once. The bug has not been able to be patched. 
+
 ## Expected Behaviour
 
 The following animation demonstrates the application functionality:
