@@ -4,7 +4,6 @@ function displayCurrentDay(){
     // get the moment object, and format it with .format
     let currentDay = moment().format("dddd, MMM Do");
 
-    console.log(currentDay)
     // select currentDay id, set its content to 'now' variable
     $('#currentDay').text(currentDay);
 }
