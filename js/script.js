@@ -166,5 +166,3 @@ buttonArray.click(storeEvent);
 displayEvent();
 
 displayCurrentDay();
-
-
