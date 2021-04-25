@@ -131,7 +131,10 @@ function storeEvent(e){
 function retrieveEvent(){
 
     // get the localStorage object, in this case a string
-    let stringValue = localStorage.getItem("Event")
+    let stringValue;
+    if(localStorage.getItem("Event")){
+        stringValue = localStorage.getItem("Event")
+    }
 
     return stringValue
 }
@@ -143,13 +146,15 @@ function displayEvent(){
     let retrievedObject = retrieveEvent()
 
     // make new array from the Storage object (in this case a long string)
-    let arrayFromObject = retrievedObject.split(",")
+    if(retrievedObject){
+        let arrayFromObject = retrievedObject.split(",")
 
-    // set the textarea value to the new array
-    for(let i = 0; i < arrayFromObject.length; i++){
+        // set the textarea value to the new array
+        for(let i = 0; i < arrayFromObject.length; i++){
 
-        textAreaArray[i].value = arrayFromObject[i]  
+            textAreaArray[i].value = arrayFromObject[i]  
 
+        }
     }
 
 }
