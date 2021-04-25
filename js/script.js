@@ -38,6 +38,7 @@ function getHoursFromPage(elementArray){
         hours[i] = elementArray[i].lastChild.textContent;
 
     }
+
     return hours;
 }
 
